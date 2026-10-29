@@ -1,9 +1,10 @@
 const express = require('express');
 const sqlite3 = require('sqlite3');
 const { open } = require('sqlite');
+const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware to parse incoming JSON request bodies
 app.use(express.json());
@@ -13,7 +14,7 @@ let db;
 // Connect to SQLite database and ensure the table exists
 async function initializeDB() {
   db = await open({
-    filename: './books.db',
+    filename: path.join(__dirname, 'books.db'),
     driver: sqlite3.Database
   });
 
