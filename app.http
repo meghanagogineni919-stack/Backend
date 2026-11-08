@@ -1,0 +1,44 @@
+### 1. Root route
+GET http://localhost:3000/
+
+### 2. Get all books
+GET http://localhost:3000/books/
+
+### 3. Get single book by ID
+GET http://localhost:3000/books/1/
+
+### 4. Search books by title
+GET http://localhost:3000/books/?search_q=Gatsby
+
+### 5. Sort books by price descending
+GET http://localhost:3000/books/?order_by=price&order=DESC
+
+### 6. Filter by price range
+GET http://localhost:3000/books/?min_price=300&max_price=500
+
+### 7. Pagination (limit and offset)
+GET http://localhost:3000/books/?limit=2&offset=0
+
+### 8. Add a new book (POST)
+POST http://localhost:3000/books/
+Content-Type: application/json
+
+{
+  "title": "Harry Potter and the Sorcerer's Stone",
+  "author": "J.K. Rowling",
+  "price": 550
+}
+
+### 9. Update an existing book (PUT)
+PUT http://localhost:3000/books/1/
+Content-Type: application/json
+
+{
+  "title": "The Great Gatsby (Special Edition)",
+  "author": "F. Scott Fitzgerald",
+  "price": 499
+}
+
+### 10. Delete a book by ID (DELETE)
+DELETE http://localhost:3000/books/3/
+
